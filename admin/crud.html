@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Productos - Panel de Administración</title>
+
+    <!-- Google Fonts: Montserrat + Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <nav class="site-header__nav container" aria-label="Navegación principal">
+            <a href="../index.html" class="site-header__logo">Mi Tienda</a>
+
+            <button type="button" class="site-header__toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+                <span class="site-header__toggle-bar"></span>
+                <span class="site-header__toggle-bar"></span>
+                <span class="site-header__toggle-bar"></span>
+            </button>
+
+            <ul class="site-header__menu">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../tienda/productos.html">Productos</a></li>
+                <li><a href="../tienda/categorias.html">Categorías</a></li>
+                <li><a href="../informativas/contacto.html">Contacto</a></li>
+            </ul>
+
+            <section class="site-header__actions">
+                <a href="../tienda/carrito.html" class="site-header__cart" aria-label="Ver carrito de compras">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    <span class="site-header__cart-badge">0</span>
+                </a>
+                <a href="../auth/login.html" class="btn btn--ghost">Iniciar Sesión</a>
+                <a href="../auth/registro.html" class="btn btn--primary">Registrarse</a>
+            </section>
+        </nav>
+
+        <aside id="mobile-menu" class="site-header__mobile-menu" aria-hidden="true">
+            <nav aria-label="Navegación móvil">
+                <ul class="site-header__mobile-list">
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="../tienda/productos.html">Productos</a></li>
+                    <li><a href="../tienda/categorias.html">Categorías</a></li>
+                    <li><a href="../informativas/contacto.html">Contacto</a></li>
+                    <li><a href="../informativas/nosotros.html">Sobre nosotros</a></li>
+                    <li><a href="../informativas/faq.html">Preguntas frecuentes</a></li>
+                </ul>
+                <footer class="site-header__mobile-actions">
+                    <a href="../tienda/carrito.html" class="btn btn--outline btn--block">🛒 Carrito (0)</a>
+                    <a href="../auth/login.html" class="btn btn--ghost btn--block">Iniciar Sesión</a>
+                    <a href="../auth/registro.html" class="btn btn--primary btn--block">Registrarse</a>
+                </footer>
+            </nav>
+        </aside>
+    </header>
+
+    <section class="admin-layout">
+        <section class="container admin-layout__container">
+
+            <!-- SIDEBAR DE ADMIN (solo desktop) -->
+            <aside class="admin-sidebar admin-sidebar--desktop">
+                <h2 class="admin-sidebar__title">Administración</h2>
+                <nav class="admin-sidebar__menu">
+                        <a href="../admin/dashboard.html">
+                            <span>📊</span> Dashboard
+                        </a>
+                        <a href="../admin/crud.html" class="active">
+                            <span>📦</span> Productos
+                        </a>
+                        <a href="#">
+                            <span>🛒</span> Pedidos
+                        </a>
+                        <a href="#">
+                            <span>👥</span> Clientes
+                        </a>
+                        <a href="#">
+                            <span>📈</span> Reportes
+                        </a>
+                </nav>
+            </aside>
+
+            <!-- CONTENIDO PRINCIPAL -->
+            <main class="admin-content">
+
+                <!-- Menú de admin colapsable (solo móvil) -->
+                <details class="admin-sidebar admin-sidebar--mobile">
+                    <summary class="admin-sidebar__toggle">
+                        <span>⚙️ Panel de Administración</span>
+                        <span class="admin-sidebar__arrow" aria-hidden="true">▼</span>
+                    </summary>
+                    <nav class="admin-sidebar__menu">
+                        <a href="../admin/dashboard.html">
+                            <span>📊</span> Dashboard
+                        </a>
+                        <a href="../admin/crud.html" class="active">
+                            <span>📦</span> Productos
+                        </a>
+                        <a href="#">
+                            <span>🛒</span> Pedidos
+                        </a>
+                        <a href="#">
+                            <span>👥</span> Clientes
+                        </a>
+                        <a href="#">
+                            <span>📈</span> Reportes
+                        </a>
+                    </nav>
+                </details>
+
+                <section class="admin-header">
+                    <section>
+                        <h1 class="admin-header__title">Productos</h1>
+                        <p class="admin-header__subtitle">Gestiona el catálogo de productos</p>
+                    </section>
+                    <a href="#" class="admin-table__action admin-table__action--edit" title="Nuevo producto">
+                        + Nuevo producto
+                    </a>
+                </section>
+
+                <!-- BARRA DE BÚSQUEDA Y FILTROS -->
+                <section class="admin-toolbar">
+                    <section class="admin-toolbar__search">
+                        <input type="text" class="form-input" placeholder="Buscar producto...">
+                    </section>
+                    <section class="admin-toolbar__filters">
+                        <select class="form-select">
+                            <option>Todas las categorías</option>
+                            <option>Ropa</option>
+                            <option>Artesanía</option>
+                            <option>Alimentos</option>
+                            <option>Libros</option>
+                        </select>
+                        <select class="form-select">
+                            <option>Todos los estados</option>
+                            <option>Activo</option>
+                            <option>Inactivo</option>
+                            <option>Agotado</option>
+                        </select>
+                    </section>
+                </section>
+
+                <!-- TABLA DE PRODUCTOS -->
+                <section class="admin-table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Categoría</th>
+                                <th>Precio</th>
+                                <th>Stock</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                    <tr>
+                        <td>
+                            <section class="product-cell">
+                                <section class="product-cell__image">IMG</section>
+                                <section class="product-cell__info">
+                                    <strong>Producto 1</strong>
+                                    <small>SKU-001</small>
+                                </section>
+                            </section>
+                        </td>
+                        <td>Ropa</td>
+                        <td><strong>$25.00</strong></td>
+                        <td>15</td>
+                        <td>
+                            <span class="badge badge--success">Activo</span>
+                        </td>
+                        <td>
+                            <section class="admin-table__actions">
+                                <a href="#" class="admin-table__action admin-table__action--edit" title="Editar">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                                    </svg>
+                                </a>
+                                <button class="admin-table__action admin-table__action--delete" title="Eliminar" type="button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="3 6 5 6 21 6"></polyline>
+                                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                    </svg>
+                                </button>
+                            </section>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <section class="product-cell">
+                                <section class="product-cell__image">IMG</section>
+                                <section class="product-cell__info">
+                                    <strong>Producto 2</strong>
+                                    <small>SKU-002</small>
+                                </section>
+                            </section>
+                        </td>
+                        <td>Ropa</td>
+                        <td><strong>$25.00</strong></td>
+                        <td>15</td>
+                        <td>
+                            <span class="badge badge--success">Activo</span>
+                        </td>
+                        <td>
+                            <section class="admin-table__actions">
+                                <a href="#" class="admin-table__action admin-table__action--edit" title="Editar">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                                    </svg>
+                                </a>
+                                <button class="admin-table__action admin-table__action--delete" title="Eliminar" type="button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="3 6 5 6 21 6"></polyline>
+                                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                    </svg>
+                                </button>
+                            </section>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <section class="product-cell">
+                                <section class="product-cell__image">IMG</section>
+                                <section class="product-cell__info">
+                                    <strong>Producto 3</strong>
+                                    <small>SKU-003</small>
+                                </section>
+                            </section>
+                        </td>
+                        <td>Ropa</td>
+                        <td><strong>$25.00</strong></td>
+                        <td>15</td>
+                        <td>
+                            <span class="badge badge--success">Activo</span>
+                        </td>
+                        <td>
+                            <section class="admin-table__actions">
+                                <a href="#" class="admin-table__action admin-table__action--edit" title="Editar">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                                    </svg>
+                                </a>
+                                <button class="admin-table__action admin-table__action--delete" title="Eliminar" type="button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="3 6 5 6 21 6"></polyline>
+                                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                    </svg>
+                                </button>
+                            </section>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <section class="product-cell">
+                                <section class="product-cell__image">IMG</section>
+                                <section class="product-cell__info">
+                                    <strong>Producto 4</strong>
+                                    <small>SKU-004</small>
+                                </section>
+                            </section>
+                        </td>
+                        <td>Ropa</td>
+                        <td><strong>$25.00</strong></td>
+                        <td>15</td>
+                        <td>
+                            <span class="badge badge--success">Activo</span>
+                        </td>
+                        <td>
+                            <section class="admin-table__actions">
+                                <a href="#" class="admin-table__action admin-table__action--edit" title="Editar">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                                    </svg>
+                                </a>
+                                <button class="admin-table__action admin-table__action--delete" title="Eliminar" type="button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="3 6 5 6 21 6"></polyline>
+                                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                    </svg>
+                                </button>
+                            </section>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <section class="product-cell">
+                                <section class="product-cell__image">IMG</section>
+                                <section class="product-cell__info">
+                                    <strong>Producto 5</strong>
+                                    <small>SKU-005</small>
+                                </section>
+                            </section>
+                        </td>
+                        <td>Ropa</td>
+                        <td><strong>$25.00</strong></td>
+                        <td>15</td>
+                        <td>
+                            <span class="badge badge--success">Activo</span>
+                        </td>
+                        <td>
+                            <section class="admin-table__actions">
+                                <a href="#" class="admin-table__action admin-table__action--edit" title="Editar">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                                    </svg>
+                                </a>
+                                <button class="admin-table__action admin-table__action--delete" title="Eliminar" type="button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="3 6 5 6 21 6"></polyline>
+                                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                    </svg>
+                                </button>
+                            </section>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <section class="product-cell">
+                                <section class="product-cell__image">IMG</section>
+                                <section class="product-cell__info">
+                                    <strong>Producto 6</strong>
+                                    <small>SKU-006</small>
+                                </section>
+                            </section>
+                        </td>
+                        <td>Ropa</td>
+                        <td><strong>$25.00</strong></td>
+                        <td>15</td>
+                        <td>
+                            <span class="badge badge--success">Activo</span>
+                        </td>
+                        <td>
+                            <section class="admin-table__actions">
+                                <a href="#" class="admin-table__action admin-table__action--edit" title="Editar">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                                    </svg>
+                                </a>
+                                <button class="admin-table__action admin-table__action--delete" title="Eliminar" type="button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="3 6 5 6 21 6"></polyline>
+                                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                    </svg>
+                                </button>
+                            </section>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <section class="product-cell">
+                                <section class="product-cell__image">IMG</section>
+                                <section class="product-cell__info">
+                                    <strong>Producto 7</strong>
+                                    <small>SKU-007</small>
+                                </section>
+                            </section>
+                        </td>
+                        <td>Ropa</td>
+                        <td><strong>$25.00</strong></td>
+                        <td>15</td>
+                        <td>
+                            <span class="badge badge--success">Activo</span>
+                        </td>
+                        <td>
+                            <section class="admin-table__actions">
+                                <a href="#" class="admin-table__action admin-table__action--edit" title="Editar">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                                    </svg>
+                                </a>
+                                <button class="admin-table__action admin-table__action--delete" title="Eliminar" type="button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="3 6 5 6 21 6"></polyline>
+                                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                    </svg>
+                                </button>
+                            </section>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <section class="product-cell">
+                                <section class="product-cell__image">IMG</section>
+                                <section class="product-cell__info">
+                                    <strong>Producto 8</strong>
+                                    <small>SKU-008</small>
+                                </section>
+                            </section>
+                        </td>
+                        <td>Ropa</td>
+                        <td><strong>$25.00</strong></td>
+                        <td>15</td>
+                        <td>
+                            <span class="badge badge--success">Activo</span>
+                        </td>
+                        <td>
+                            <section class="admin-table__actions">
+                                <a href="#" class="admin-table__action admin-table__action--edit" title="Editar">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                                    </svg>
+                                </a>
+                                <button class="admin-table__action admin-table__action--delete" title="Eliminar" type="button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="3 6 5 6 21 6"></polyline>
+                                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                    </svg>
+                                </button>
+                            </section>
+                        </td>
+                    </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- PAGINACIÓN -->
+                <nav class="pagination">
+                    <a href="#" class="pagination__link">Anterior</a>
+                    <a href="#" class="pagination__link pagination__link--active">1</a>
+                    <a href="#" class="pagination__link">2</a>
+                    <a href="#" class="pagination__link">3</a>
+                    <a href="#" class="pagination__link">Siguiente</a>
+                </nav>
+
+            </main>
+
+        </section>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="site-footer">
+        <section class="site-footer__content container">
+
+            <article>
+                <h3 class="site-footer__title">Mi Tienda</h3>
+                <p class="site-footer__text">
+                    Apoyando emprendedores locales con productos únicos y de calidad.
+                </p>
+
+                <form class="site-footer__newsletter" aria-label="Suscribirse al boletín">
+                    <label for="newsletter-email" class="site-footer__newsletter-label">
+                        Suscríbete a nuestro boletín
+                    </label>
+                    <input type="email" id="newsletter-email" class="site-footer__newsletter-input" placeholder="tu@correo.com" required>
+                    <button type="submit" class="site-footer__newsletter-button">
+                        Suscribirse
+                    </button>
+                    <small class="site-footer__newsletter-hint">
+                        Recibe ofertas exclusivas y novedades
+                    </small>
+                </form>
+            </article>
+
+            <nav aria-label="Enlaces del sitio">
+                <h4 class="site-footer__subtitle">Enlaces</h4>
+                <ul class="site-footer__links">
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="../tienda/productos.html">Productos</a></li>
+                    <li><a href="../tienda/categorias.html">Categorías</a></li>
+                    <li><a href="../informativas/nosotros.html">Sobre nosotros</a></li>
+                    <li><a href="../informativas/contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <nav aria-label="Enlaces de ayuda">
+                <h4 class="site-footer__subtitle">Ayuda</h4>
+                <ul class="site-footer__links">
+                    <li><a href="../informativas/faq.html">Preguntas frecuentes</a></li>
+                    <li><a href="../informativas/envios.html">Envíos</a></li>
+                    <li><a href="../informativas/devoluciones.html">Devoluciones</a></li>
+                    <li><a href="../informativas/terminos.html">Términos y condiciones</a></li>
+                    <li><a href="../informativas/privacidad.html">Política de privacidad</a></li>
+                </ul>
+            </nav>
+
+            <article>
+                <h4 class="site-footer__subtitle">Síguenos</h4>
+                <p class="site-footer__text">
+                    Conéctate con nosotros en redes sociales.
+                </p>
+
+                <nav class="site-footer__socials" aria-label="Redes sociales">
+                    <a href="https://instagram.com/tu-cuenta" target="_blank" rel="noopener noreferrer" class="site-footer__social" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+
+                    <a href="https://facebook.com/tu-cuenta" target="_blank" rel="noopener noreferrer" class="site-footer__social" aria-label="Facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                    </a>
+
+                    <a href="https://wa.me/584121234567" target="_blank" rel="noopener noreferrer" class="site-footer__social" aria-label="WhatsApp">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                        </svg>
+                    </a>
+
+                    <a href="https://tiktok.com/@tu-cuenta" target="_blank" rel="noopener noreferrer" class="site-footer__social" aria-label="TikTok">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                        </svg>
+                    </a>
+                </nav>
+            </article>
+
+        </section>
+
+        <p class="site-footer__bottom">© 2026 Mi Tienda. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../js/app.js"></script>
+    <script src="../js/validations.js"></script>
+    <script src="../js/password-toggle.js"></script>
+    <script src="../js/modals.js"></script>
+    <script src="../js/toasts.js"></script>
+
+</body>
+</html>

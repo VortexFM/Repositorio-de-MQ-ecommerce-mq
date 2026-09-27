@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Envíos - Mi Tienda</title>
+
+    <!-- Google Fonts: Montserrat + Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+    <!-- ============================================
+         HEADER / NAVBAR
+         ============================================ -->
+    <header class="site-header">
+        <nav class="site-header__nav container" aria-label="Navegación principal">
+
+            <!-- Logo -->
+            <a href="../index.html" class="site-header__logo">Mi Tienda</a>
+
+            <!-- Botón hamburguesa (solo móvil) -->
+            <button type="button" class="site-header__toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+                <span class="site-header__toggle-bar"></span>
+                <span class="site-header__toggle-bar"></span>
+                <span class="site-header__toggle-bar"></span>
+            </button>
+
+            <!-- Menú desktop -->
+            <ul class="site-header__menu">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../tienda/productos.html">Productos</a></li>
+                <li><a href="../tienda/categorias.html">Categorías</a></li>
+                <li><a href="../informativas/contacto.html">Contacto</a></li>
+            </ul>
+
+            <!-- Acciones desktop -->
+            <section class="site-header__actions">
+                <a href="../tienda/carrito.html" class="site-header__cart" aria-label="Ver carrito de compras">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    <span class="site-header__cart-badge">0</span>
+                </a>
+
+                <a href="../auth/login.html" class="btn btn--ghost">Iniciar Sesión</a>
+                <a href="../auth/registro.html" class="btn btn--primary">Registrarse</a>
+            </section>
+
+        </nav>
+
+        <!-- Menú móvil desplegable -->
+        <aside id="mobile-menu" class="site-header__mobile-menu" aria-hidden="true">
+            <nav aria-label="Navegación móvil">
+                <ul class="site-header__mobile-list">
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="../tienda/productos.html">Productos</a></li>
+                    <li><a href="../tienda/categorias.html">Categorías</a></li>
+                    <li><a href="../informativas/contacto.html">Contacto</a></li>
+                    <li><a href="../informativas/nosotros.html">Sobre nosotros</a></li>
+                    <li><a href="../informativas/faq.html">Preguntas frecuentes</a></li>
+                </ul>
+
+                <footer class="site-header__mobile-actions">
+                    <a href="../tienda/carrito.html" class="btn btn--outline btn--block">
+                        🛒 Carrito (0)
+                    </a>
+                    <a href="../auth/login.html" class="btn btn--ghost btn--block">
+                        Iniciar Sesión
+                    </a>
+                    <a href="../auth/registro.html" class="btn btn--primary btn--block">
+                        Registrarse
+                    </a>
+                </footer>
+            </nav>
+        </aside>
+    </header>
+
+    <header class="page-header">
+        <section class="container">
+            <h1 class="page-header__title">Política de Envíos</h1>
+            <p class="page-header__subtitle">Información sobre nuestros métodos y tiempos de envío</p>
+        </section>
+    </header>
+
+    <main>
+        <section class="section container">
+            <section class="legal-layout">
+
+                <!-- SIDEBAR DE NAVEGACIÓN LEGAL (solo desktop) -->
+                <aside class="legal-sidebar legal-sidebar--desktop">
+                    <h2 class="legal-sidebar__title">Información Legal</h2>
+                    <nav class="legal-sidebar__menu" aria-label="Páginas legales">
+                    <a href="../informativas/terminos.html">
+                        📄 Términos y condiciones
+                    </a>
+                    <a href="../informativas/privacidad.html">
+                        🔒 Política de privacidad
+                    </a>
+                    <a href="../informativas/envios.html" class="active">
+                        🚚 Política de envíos
+                    </a>
+                    <a href="../informativas/devoluciones.html">
+                        ↩️ Política de devoluciones
+                    </a>
+                    </nav>
+                </aside>
+
+                <!-- CONTENIDO PRINCIPAL -->
+                <article class="legal-content">
+
+                    <!-- Menú legal colapsable (solo móvil) -->
+                    <details class="legal-sidebar legal-sidebar--mobile">
+                        <summary class="legal-sidebar__toggle">
+                            <span>📚 Información Legal</span>
+                            <span class="legal-sidebar__arrow" aria-hidden="true">▼</span>
+                        </summary>
+                        <nav class="legal-sidebar__menu" aria-label="Páginas legales">
+                    <a href="../informativas/terminos.html">
+                        📄 Términos y condiciones
+                    </a>
+                    <a href="../informativas/privacidad.html">
+                        🔒 Política de privacidad
+                    </a>
+                    <a href="../informativas/envios.html" class="active">
+                        🚚 Política de envíos
+                    </a>
+                    <a href="../informativas/devoluciones.html">
+                        ↩️ Política de devoluciones
+                    </a>
+                        </nav>
+                    </details>
+
+                    <header class="legal-header">
+                        <p class="legal-content__updated">
+                            📅 Última actualización: 26/09/2026
+                        </p>
+
+                        <details class="legal-index" open>
+                            <summary class="legal-index__toggle">
+                                📑 Índice de contenido
+                                <span class="legal-index__arrow" aria-hidden="true">▼</span>
+                            </summary>
+                            <nav aria-label="Índice de contenido">
+                                <ol class="legal-index__list">
+                                <li><a href="#zonas">Zonas de envío</a></li>
+                                <li><a href="#tiempos">Tiempos de entrega</a></li>
+                                <li><a href="#costos">Costos de envío</a></li>
+                                <li><a href="#seguimiento">Seguimiento de envío</a></li>
+                                <li><a href="#empaque">Empaque</a></li>
+                                <li><a href="#problemas">Problemas con el envío</a></li>
+                                </ol>
+                            </nav>
+                        </details>
+                    </header>
+
+                    <section class="legal-sections">
+                        <details class="legal-section" id="zonas" open>
+                            <summary class="legal-section__title">
+                                1. Zonas de envío
+                                <span class="legal-section__icon" aria-hidden="true">+</span>
+                            </summary>
+                            <section class="legal-section__content">
+                                <p>
+                                    Realizamos envíos a todo el territorio nacional a través de empresas de encomiendas
+                                    como Zoom, MRW y Tealca. También ofrecemos entrega personal en Barquisimeto.
+                                </p>
+                            </section>
+                        </details>
+
+                        <details class="legal-section" id="tiempos">
+                            <summary class="legal-section__title">
+                                2. Tiempos de entrega
+                                <span class="legal-section__icon" aria-hidden="true">+</span>
+                            </summary>
+                            <section class="legal-section__content">
+                                <ul>
+                                    <li><strong>Barquisimeto:</strong> 1 a 2 días hábiles.</li>
+                                    <li><strong>Principales ciudades (Caracas, Maracaibo, Valencia):</strong> 2 a 3 días hábiles.</li>
+                                    <li><strong>Resto del país:</strong> 3 a 5 días hábiles.</li>
+                                </ul>
+                                <p>Los tiempos pueden variar en temporadas altas o por causas externas ajenas a nuestra operación.</p>
+                            </section>
+                        </details>
+
+                        <details class="legal-section" id="costos">
+                            <summary class="legal-section__title">
+                                3. Costos de envío
+                                <span class="legal-section__icon" aria-hidden="true">+</span>
+                            </summary>
+                            <section class="legal-section__content">
+                                <p>
+                                    El costo del envío se calcula según el destino y el peso del paquete. El monto
+                                    se muestra al finalizar la compra antes de confirmar el pedido.
+                                </p>
+                                <blockquote class="legal-blockquote">
+                                    🎉 <strong>¡Envío gratis en compras superiores a $50!</strong>
+                                </blockquote>
+                            </section>
+                        </details>
+
+                        <details class="legal-section" id="seguimiento">
+                            <summary class="legal-section__title">
+                                4. Seguimiento de envío
+                                <span class="legal-section__icon" aria-hidden="true">+</span>
+                            </summary>
+                            <section class="legal-section__content">
+                                <p>
+                                    Una vez que tu pedido sea despachado, recibirás un correo con el número de guía
+                                    para que puedas hacer seguimiento a través de la empresa de encomiendas.
+                                </p>
+                            </section>
+                        </details>
+
+                        <details class="legal-section" id="empaque">
+                            <summary class="legal-section__title">
+                                5. Empaque
+                                <span class="legal-section__icon" aria-hidden="true">+</span>
+                            </summary>
+                            <section class="legal-section__content">
+                                <p>
+                                    Todos nuestros productos se empacan cuidadosamente para garantizar que lleguen
+                                    en perfecto estado. Usamos materiales reciclables siempre que sea posible.
+                                </p>
+                            </section>
+                        </details>
+
+                        <details class="legal-section" id="problemas">
+                            <summary class="legal-section__title">
+                                6. Problemas con el envío
+                                <span class="legal-section__icon" aria-hidden="true">+</span>
+                            </summary>
+                            <section class="legal-section__content">
+                                <p>
+                                    Si tu pedido no llega en el tiempo estimado o llega dañado, contáctanos de inmediato
+                                    a <a href="mailto:info@mitienda.com">info@mitienda.com</a> y te ayudaremos a resolverlo.
+                                </p>
+                            </section>
+                        </details>
+                    </section>
+
+                    <footer class="legal-footer">
+                        <a href="#top" class="btn btn--outline btn--sm">↑ Volver arriba</a>
+                    </footer>
+
+                </article>
+
+            </section>
+        </section>
+    </main>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="site-footer">
+        <section class="site-footer__content container">
+
+            <article>
+                <h3 class="site-footer__title">Mi Tienda</h3>
+                <p class="site-footer__text">
+                    Apoyando emprendedores locales con productos únicos y de calidad.
+                </p>
+
+                <form class="site-footer__newsletter" aria-label="Suscribirse al boletín">
+                    <label for="newsletter-email" class="site-footer__newsletter-label">
+                        Suscríbete a nuestro boletín
+                    </label>
+                    <input type="email" id="newsletter-email" class="site-footer__newsletter-input" placeholder="tu@correo.com" required>
+                    <button type="submit" class="site-footer__newsletter-button">
+                        Suscribirse
+                    </button>
+                    <small class="site-footer__newsletter-hint">
+                        Recibe ofertas exclusivas y novedades
+                    </small>
+                </form>
+            </article>
+
+            <nav aria-label="Enlaces del sitio">
+                <h4 class="site-footer__subtitle">Enlaces</h4>
+                <ul class="site-footer__links">
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="../tienda/productos.html">Productos</a></li>
+                    <li><a href="../tienda/categorias.html">Categorías</a></li>
+                    <li><a href="../informativas/nosotros.html">Sobre nosotros</a></li>
+                    <li><a href="../informativas/contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <nav aria-label="Enlaces de ayuda">
+                <h4 class="site-footer__subtitle">Ayuda</h4>
+                <ul class="site-footer__links">
+                    <li><a href="../informativas/faq.html">Preguntas frecuentes</a></li>
+                    <li><a href="../informativas/envios.html">Envíos</a></li>
+                    <li><a href="../informativas/devoluciones.html">Devoluciones</a></li>
+                    <li><a href="../informativas/terminos.html">Términos y condiciones</a></li>
+                    <li><a href="../informativas/privacidad.html">Política de privacidad</a></li>
+                </ul>
+            </nav>
+
+            <article>
+                <h4 class="site-footer__subtitle">Síguenos</h4>
+                <p class="site-footer__text">
+                    Conéctate con nosotros en redes sociales.
+                </p>
+
+                <nav class="site-footer__socials" aria-label="Redes sociales">
+                    <a href="https://instagram.com/tu-cuenta" target="_blank" rel="noopener noreferrer" class="site-footer__social" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+
+                    <a href="https://facebook.com/tu-cuenta" target="_blank" rel="noopener noreferrer" class="site-footer__social" aria-label="Facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                    </a>
+
+                    <a href="https://wa.me/584121234567" target="_blank" rel="noopener noreferrer" class="site-footer__social" aria-label="WhatsApp">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                        </svg>
+                    </a>
+
+                    <a href="https://tiktok.com/@tu-cuenta" target="_blank" rel="noopener noreferrer" class="site-footer__social" aria-label="TikTok">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                        </svg>
+                    </a>
+                </nav>
+            </article>
+
+        </section>
+
+        <p class="site-footer__bottom">© 2026 Mi Tienda. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../js/app.js"></script>
+    <script src="../js/validations.js"></script>
+    <script src="../js/password-toggle.js"></script>
+    <script src="../js/modals.js"></script>
+    <script src="../js/toasts.js"></script>
+
+</body>
+</html>

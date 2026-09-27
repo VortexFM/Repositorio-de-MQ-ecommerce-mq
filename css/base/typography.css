@@ -1,0 +1,61 @@
+/* ============================================
+   TIPOGRAFÍA
+   ============================================ */
+
+body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-title);
+    color: var(--color-text);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+h1 { font-size: var(--text-4xl); }
+h2 { font-size: var(--text-3xl); }
+h3 { font-size: var(--text-2xl); }
+h4 { font-size: var(--text-xl); }
+h5 { font-size: var(--text-lg); }
+h6 { font-size: var(--text-base); }
+
+p {
+    color: var(--color-text-light);
+    line-height: 1.7;
+}
+
+a {
+    color: var(--color-primary);
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--color-primary-dark);
+}
+
+strong {
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+small {
+    font-size: var(--text-sm);
+}
+
+ul, ol {
+    list-style: none;
+}
+
+/* ============================================
+   TIPOGRAFÍA RESPONSIVE
+   ============================================ */
+
+@media (min-width: 768px) {
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2.25rem; }
+}

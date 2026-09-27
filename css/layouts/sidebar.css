@@ -1,0 +1,207 @@
+/* ============================================
+   SIDEBAR / PANEL LATERAL
+   ============================================ */
+
+.sidebar {
+    background-color: var(--color-surface);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-sm);
+    padding: var(--space-6);
+    position: sticky;
+    top: 6rem;
+    height: fit-content;
+}
+
+.sidebar__title {
+    font-family: var(--font-title);
+    font-size: var(--text-lg);
+    font-weight: 700;
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text);
+}
+
+.sidebar__menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.sidebar__menu a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-md);
+    color: var(--color-text);
+    font-weight: 500;
+    font-size: var(--text-sm);
+    transition: var(--transition);
+}
+
+.sidebar__menu a:hover {
+    background-color: var(--color-bg);
+    color: var(--color-primary);
+}
+
+.sidebar__menu a.active {
+    background-color: #fee2e2;
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+/* ============================================
+   SIDEBAR DE FILTROS (CATÁLOGO)
+   ============================================ */
+
+.filter-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.filter-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-size: var(--text-sm);
+    color: var(--color-text);
+    transition: color 0.2s ease;
+}
+
+.filter-checkbox:hover {
+    color: var(--color-primary);
+}
+
+.filter-checkbox input {
+    cursor: pointer;
+}
+
+/* Rango de precio */
+.price-range {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.price-range .form-input {
+    width: 50%;
+}
+
+/* ============================================
+   SIDEBAR LEGAL (PÁGINAS LEGALES)
+   ============================================ */
+
+.legal-sidebar {
+    background-color: var(--color-surface);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-sm);
+    padding: var(--space-6);
+    height: fit-content;
+    position: sticky;
+    top: 6rem;
+}
+
+.legal-sidebar__title {
+    font-family: var(--font-title);
+    font-size: var(--text-lg);
+    font-weight: 700;
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text);
+}
+
+.legal-sidebar__menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    list-style: none;
+}
+
+.legal-sidebar__menu a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-md);
+    color: var(--color-text);
+    font-weight: 500;
+    font-size: var(--text-sm);
+    transition: var(--transition);
+}
+
+.legal-sidebar__menu a:hover {
+    background-color: var(--color-bg);
+    color: var(--color-primary);
+}
+
+.legal-sidebar__menu a.active {
+    background-color: #fee2e2;
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+/* ============================================
+   SIDEBAR RESPONSIVE (COLAPSABLE EN MÓVIL)
+   ============================================ */
+
+/* Sidebar de escritorio (oculto en móvil) */
+.legal-sidebar--desktop {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .legal-sidebar--desktop {
+        display: block;
+    }
+}
+
+/* Sidebar de móvil (colapsable) */
+.legal-sidebar--mobile {
+    display: block;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-6);
+    overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+    .legal-sidebar--mobile {
+        display: none;
+    }
+}
+
+.legal-sidebar__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-4) var(--space-6);
+    cursor: pointer;
+    font-family: var(--font-title);
+    font-weight: 600;
+    color: var(--color-text);
+    list-style: none;
+    font-size: var(--text-sm);
+}
+
+.legal-sidebar__toggle::-webkit-details-marker {
+    display: none;
+}
+
+.legal-sidebar__toggle:hover {
+    background-color: var(--color-bg);
+    color: var(--color-primary);
+}
+
+.legal-sidebar__arrow {
+    color: var(--color-primary);
+    transition: transform 0.2s ease;
+    font-size: var(--text-xs);
+}
+
+.legal-sidebar--mobile[open] .legal-sidebar__arrow {
+    transform: rotate(180deg);
+}

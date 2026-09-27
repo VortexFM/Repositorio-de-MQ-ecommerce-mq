@@ -1,0 +1,204 @@
+/* ============================================
+   HEADER / NAVBAR
+   ============================================ */
+
+.site-header {
+    background-color: var(--color-surface);
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.site-header__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-4) 0;
+    gap: var(--space-4);
+}
+
+.site-header__logo {
+    font-family: var(--font-title);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--color-primary);
+    flex-shrink: 0;
+}
+
+/* Botón hamburguesa (solo visible en móvil) */
+.site-header__toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: var(--radius-md);
+    transition: background-color 0.2s ease;
+    margin-left: auto;
+    order: 2;
+}
+
+.site-header__toggle:hover {
+    background-color: var(--color-bg);
+}
+
+.site-header__toggle:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.site-header__toggle-bar {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-text);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Animación del botón hamburguesa cuando está abierto */
+.site-header__toggle[aria-expanded="true"] .site-header__toggle-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+    background-color: var(--color-primary);
+}
+
+.site-header__toggle[aria-expanded="true"] .site-header__toggle-bar:nth-child(2) {
+    opacity: 0;
+}
+
+.site-header__toggle[aria-expanded="true"] .site-header__toggle-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+    background-color: var(--color-primary);
+}
+
+/* Menú de navegación desktop */
+.site-header__menu {
+    display: none;
+    gap: var(--space-8);
+    list-style: none;
+}
+
+/* Acciones desktop */
+.site-header__actions {
+    display: none;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+/* Mostrar menú y acciones en desktop */
+@media (min-width: 768px) {
+    .site-header__toggle {
+        display: none;
+    }
+
+    .site-header__menu {
+        display: flex;
+    }
+
+    .site-header__actions {
+        display: flex;
+    }
+}
+
+.site-header__menu a {
+    color: var(--color-text);
+    font-weight: 500;
+    transition: color 0.2s ease-in-out;
+}
+
+.site-header__menu a:hover {
+    color: var(--color-primary);
+}
+
+/* Carrito */
+.site-header__cart {
+    position: relative;
+    color: var(--color-text);
+    transition: color 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+}
+
+.site-header__cart:hover {
+    color: var(--color-primary);
+}
+
+.site-header__cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: var(--color-primary);
+    color: white;
+    font-size: var(--text-xs);
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+/* ============================================
+   MENÚ MÓVIL DESPLEGABLE
+   ============================================ */
+
+.site-header__mobile-menu {
+    display: none;
+    background-color: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.site-header__mobile-menu.is-open {
+    display: block;
+    max-height: 60rem;
+}
+
+@media (min-width: 768px) {
+    .site-header__mobile-menu {
+        display: none !important;
+    }
+}
+
+.site-header__mobile-list {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-4);
+    gap: 0.25rem;
+    list-style: none;
+}
+
+.site-header__mobile-list a {
+    display: block;
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+    color: var(--color-text);
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+}
+
+.site-header__mobile-list a:hover {
+    background-color: var(--color-bg);
+    color: var(--color-primary);
+}
+
+.site-header__mobile-actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-4);
+    border-top: 1px solid var(--color-border);
+}
+
+.site-header__mobile-actions .btn {
+    width: 100%;
+}

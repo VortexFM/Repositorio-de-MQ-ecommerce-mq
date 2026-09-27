@@ -1,0 +1,178 @@
+/* ============================================
+   PÁGINA SOBRE NOSOTROS
+   ============================================ */
+
+/* Sección de historia */
+.about-story {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+    align-items: center;
+}
+
+@media (min-width: 1024px) {
+    .about-story {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.about-story__image {
+    background-color: var(--color-border);
+    border-radius: var(--radius-2xl);
+    height: 24rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-lighter);
+    font-size: var(--text-sm);
+    overflow: hidden;
+}
+
+.about-story__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-story__title {
+    font-family: var(--font-title);
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--space-6);
+}
+
+.about-story__text {
+    color: var(--color-text-light);
+    line-height: 1.8;
+    margin-bottom: var(--space-4);
+}
+
+/* ============================================
+   TARJETA DE MISIÓN/VISIÓN/VALORES
+   ============================================ */
+
+.about-card {
+    background-color: var(--color-surface);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.about-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+}
+
+.about-card__icon {
+    font-size: 3rem;
+    margin-bottom: var(--space-4);
+}
+
+.about-card__title {
+    font-family: var(--font-title);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--space-4);
+}
+
+.about-card__text {
+    color: var(--color-text-light);
+    font-size: var(--text-sm);
+    line-height: 1.7;
+}
+
+/* ============================================
+   TARJETA DE EQUIPO
+   ============================================ */
+
+.team-card {
+    background-color: var(--color-surface);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.team-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+}
+
+.team-card__avatar {
+    width: 5rem;
+    height: 5rem;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-maroon) 100%);
+    color: white;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-title);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    margin: 0 auto var(--space-4);
+}
+
+.team-card__name {
+    font-family: var(--font-title);
+    font-size: var(--text-base);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.25rem;
+}
+
+.team-card__role {
+    font-size: var(--text-sm);
+    color: var(--color-primary);
+    font-weight: 500;
+}
+
+/* ============================================
+   BANNER CTA
+   ============================================ */
+
+.cta-banner {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-maroon) 100%);
+    border-radius: var(--radius-2xl);
+    padding: 3rem 2rem;
+    text-align: center;
+    color: white;
+    margin-bottom: var(--space-16);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-banner__title {
+    font-family: var(--font-title);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.75rem;
+}
+
+@media (min-width: 768px) {
+    .cta-banner__title {
+        font-size: 2rem;
+    }
+}
+
+.cta-banner__text {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: var(--space-6);
+    font-size: var(--text-base);
+}
+
+.cta-banner .btn--primary {
+    background-color: white;
+    color: var(--color-primary);
+}
+
+.cta-banner .btn--primary:hover {
+    background-color: #f3f4f6;
+    color: var(--color-primary-dark);
+}

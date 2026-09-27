@@ -1,0 +1,260 @@
+/* ============================================
+   MODALES
+   ============================================ */
+
+/* Overlay (fondo oscuro translúcido) */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(11, 10, 8, 0.6);
+    -webkit-backdrop-filter: blur(4px);  /* ← Safari/Chrome */
+    backdrop-filter: blur(4px);          /* ← Estándar */
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9998;
+    padding: 1rem;
+}
+
+.modal-overlay.is-open {
+    display: flex;
+    animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Contenedor del modal */
+.modal {
+    background-color: var(--color-surface);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    width: 100%;
+    max-width: 32rem;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Modal pequeño */
+.modal--sm {
+    max-width: 24rem;
+}
+
+/* Modal grande */
+.modal--lg {
+    max-width: 48rem;
+}
+
+/* ============================================
+   HEADER DEL MODAL
+   ============================================ */
+
+.modal__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.5rem 1.5rem 1rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.modal__title {
+    font-family: var(--font-title);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0;
+}
+
+.modal__subtitle {
+    font-size: var(--text-sm);
+    color: var(--color-text-light);
+    margin-top: 0.25rem;
+}
+
+.modal__close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text-lighter);
+    transition: color 0.2s ease;
+    padding: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    flex-shrink: 0;
+}
+
+.modal__close:hover {
+    color: var(--color-text);
+    background-color: var(--color-bg);
+}
+
+/* ============================================
+   BODY DEL MODAL
+   ============================================ */
+
+.modal__body {
+    padding: 1.5rem;
+}
+
+.modal__body p {
+    color: var(--color-text-light);
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+/* ============================================
+   FOOTER DEL MODAL
+   ============================================ */
+
+.modal__footer {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: flex-end;
+    padding: 1rem 1.5rem 1.5rem;
+    border-top: 1px solid var(--color-border);
+    flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+    .modal__footer {
+        flex-direction: column-reverse;
+    }
+
+    .modal__footer .btn {
+        width: 100%;
+    }
+}
+
+/* ============================================
+   MODAL DE CONFIRMACIÓN
+   ============================================ */
+
+.modal__icon {
+    width: 4rem;
+    height: 4rem;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: 0 auto 1rem;
+    flex-shrink: 0;
+}
+
+.modal__icon--success {
+    background-color: #d1fae5;
+    color: var(--color-success);
+}
+
+.modal__icon--danger {
+    background-color: #fee2e2;
+    color: var(--color-danger);
+}
+
+.modal__icon--warning {
+    background-color: #fef3c7;
+    color: var(--color-warning);
+}
+
+.modal__icon--info {
+    background-color: #dbeafe;
+    color: var(--color-info);
+}
+
+/* Modal centrado (con ícono grande) */
+.modal--centered .modal__header {
+    border-bottom: none;
+    padding-bottom: 0;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.modal--centered .modal__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.modal--centered .modal__title {
+    text-align: center;
+}
+
+.modal--centered .modal__subtitle {
+    text-align: center;
+}
+
+.modal--centered .modal__body {
+    text-align: center;
+    padding-top: 1rem;
+}
+
+.modal--centered .modal__footer {
+    justify-content: center;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 640px) {
+    .modal {
+        max-width: 95%;
+        max-height: 92vh;
+        border-radius: var(--radius-lg);
+    }
+
+    .modal__header {
+        padding: 1.25rem 1.25rem 0.75rem;
+    }
+
+    .modal__body {
+        padding: 1.25rem;
+    }
+
+    .modal__footer {
+        padding: 0.75rem 1.25rem 1.25rem;
+    }
+
+    .modal__title {
+        font-size: var(--text-lg);
+    }
+
+    /* Formularios en 1 columna en móvil */
+    .modal .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal .form-group--full {
+        grid-column: span 1;
+    }
+}
+
+/* ============================================
+   PREVENIR SCROLL DEL BODY CUANDO MODAL ESTÁ ABIERTO
+   ============================================ */
+
+body.modal-open {
+    overflow: hidden;
+}

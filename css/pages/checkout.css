@@ -1,0 +1,139 @@
+/* ============================================
+   CHECKOUT
+   ============================================ */
+
+.checkout-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+}
+
+@media (min-width: 1024px) {
+    .checkout-layout {
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+.checkout-main {
+    min-width: 0;
+}
+
+/* Secciones del formulario */
+.checkout-section {
+    background-color: var(--color-surface);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-sm);
+    padding: var(--space-6);
+    margin-bottom: var(--space-6);
+}
+
+.checkout-section__title {
+    font-family: var(--font-title);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    margin-bottom: var(--space-6);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--color-text);
+}
+
+.checkout-section__step {
+    width: 2rem;
+    height: 2rem;
+    background-color: var(--color-primary);
+    color: white;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+/* Opciones de pago */
+.payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.payment-option {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: var(--space-4);
+    border: 1px solid #d1d5db;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.payment-option:hover {
+    background-color: var(--color-bg);
+    border-color: var(--color-text-lighter);
+}
+
+.payment-option--selected {
+    border-color: var(--color-primary);
+    background-color: #fef2f2;
+    border-width: 2px;
+}
+
+.payment-option__title {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: var(--color-text);
+}
+
+.payment-option__description {
+    font-size: var(--text-sm);
+    color: var(--color-text-light);
+}
+
+/* ============================================
+   RESUMEN DEL PEDIDO
+   ============================================ */
+
+.order-summary {
+    background-color: var(--color-surface);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-sm);
+    padding: var(--space-6);
+    position: sticky;
+    top: 6rem;
+    height: fit-content;
+}
+
+.order-summary__items {
+    padding-bottom: var(--space-4);
+    margin-bottom: var(--space-4);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.order-summary__item {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--text-sm);
+    color: var(--color-text);
+}
+
+.order-summary__item small {
+    color: var(--color-text-lighter);
+    font-size: var(--text-xs);
+}
+
+.order-summary__item span:last-child {
+    font-weight: 500;
+}
+
+.order-summary__note {
+    font-size: var(--text-xs);
+    color: var(--color-text-lighter);
+    text-align: center;
+    margin-top: var(--space-4);
+}

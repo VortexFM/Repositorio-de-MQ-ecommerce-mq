@@ -1,0 +1,228 @@
+/* ============================================
+   DETALLE DE PRODUCTO
+   ============================================ */
+
+/* Migas de pan */
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: var(--text-sm);
+    color: var(--color-text-light);
+    margin-bottom: var(--space-8);
+    flex-wrap: wrap;
+}
+
+.breadcrumb a {
+    color: var(--color-text-light);
+    transition: color 0.2s ease;
+}
+
+.breadcrumb a:hover {
+    color: var(--color-primary);
+}
+
+.breadcrumb__current {
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+/* Layout del detalle */
+.product-detail {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+    margin-bottom: var(--space-16);
+}
+
+@media (min-width: 1024px) {
+    .product-detail {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ============================================
+   GALERÍA
+   ============================================ */
+
+.product-gallery__main {
+    background-color: var(--color-border);
+    border-radius: var(--radius-xl);
+    height: 24rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-lighter);
+    margin-bottom: var(--space-4);
+    overflow: hidden;
+}
+
+.product-gallery__main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-gallery__thumbs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+}
+
+.product-gallery__thumb {
+    background-color: var(--color-border);
+    border-radius: var(--radius-md);
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-lighter);
+    font-size: var(--text-xs);
+    cursor: pointer;
+    transition: var(--transition);
+    border: 2px solid transparent;
+    overflow: hidden;
+}
+
+.product-gallery__thumb:hover {
+    border-color: var(--color-primary);
+}
+
+.product-gallery__thumb.is-active {
+    border-color: var(--color-primary);
+}
+
+.product-gallery__thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ============================================
+   INFORMACIÓN DEL PRODUCTO
+   ============================================ */
+
+.product-info__title {
+    font-family: var(--font-title);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    margin: var(--space-4) 0;
+    color: var(--color-text);
+}
+
+@media (min-width: 768px) {
+    .product-info__title {
+        font-size: 2rem;
+    }
+}
+
+.product-info__rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: var(--space-6);
+    color: #f59e0b;
+    font-size: var(--text-lg);
+}
+
+.product-info__reviews {
+    color: var(--color-text-light);
+    font-size: var(--text-sm);
+}
+
+.product-info__price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--space-6);
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.product-info__price-old {
+    font-size: var(--text-lg);
+    color: var(--color-text-lighter);
+    text-decoration: line-through;
+    font-weight: 400;
+}
+
+.product-info__description {
+    color: var(--color-text-light);
+    line-height: 1.7;
+    margin-bottom: var(--space-6);
+}
+
+.product-info__stock {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-success);
+    margin-bottom: var(--space-8);
+}
+
+/* Acciones (cantidad + botón) */
+.product-info__actions {
+    display: flex;
+    gap: var(--space-4);
+    margin-bottom: var(--space-8);
+    flex-wrap: wrap;
+}
+
+.product-info__actions .btn {
+    flex: 1;
+    min-width: 12rem;
+}
+
+/* Información adicional */
+.product-info__extras {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--color-border);
+    font-size: var(--text-sm);
+    color: var(--color-text-light);
+    list-style: none;
+}
+
+/* ============================================
+   SELECTOR DE CANTIDAD
+   ============================================ */
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    border: 1px solid #d1d5db;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.quantity-selector button {
+    padding: 0.75rem 1rem;
+    color: var(--color-text-light);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: var(--text-lg);
+    transition: background-color 0.2s ease;
+}
+
+.quantity-selector button:hover {
+    background-color: var(--color-bg);
+}
+
+.quantity-selector input {
+    width: 4rem;
+    text-align: center;
+    border: none;
+    border-left: 1px solid #d1d5db;
+    border-right: 1px solid #d1d5db;
+    padding: 0.75rem 0;
+    outline: none;
+    font-size: var(--text-sm);
+    background-color: var(--color-surface);
+}

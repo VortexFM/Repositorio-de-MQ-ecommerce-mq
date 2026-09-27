@@ -1,0 +1,71 @@
+/* ============================================
+   ADMIN - Gestión de Clientes
+   ============================================ */
+
+/* Celda de cliente */
+.client-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-style: normal;
+}
+
+.client-cell__avatar {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: #fee2e2;
+    color: var(--color-primary);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: var(--text-sm);
+    flex-shrink: 0;
+}
+
+.client-cell__info {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.client-cell__info strong {
+    color: var(--color-text);
+    font-weight: 600;
+}
+
+.client-cell__info small {
+    color: var(--color-text-lighter);
+    font-size: var(--text-xs);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .admin-table th:nth-child(2),
+    .admin-table td:nth-child(2),
+    .admin-table th:nth-child(3),
+    .admin-table td:nth-child(3) {
+        display: none;
+    }
+
+    .admin-table {
+        min-width: auto;
+    }
+
+    .admin-table th,
+    .admin-table td {
+        padding: 0.75rem 0.5rem;
+        font-size: var(--text-xs);
+    }
+
+    .client-cell__avatar {
+        width: 2rem;
+        height: 2rem;
+        font-size: var(--text-xs);
+    }
+}

@@ -1,0 +1,131 @@
+/* ============================================
+   BADGES / ETIQUETAS
+   ============================================ */
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.25rem 0.75rem;
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    border-radius: var(--radius-full);
+    line-height: 1;
+    white-space: nowrap;
+}
+
+/* ============================================
+   VARIANTES DE COLOR
+   ============================================ */
+
+/* Primario (rojo) */
+.badge--primary {
+    background-color: #fee2e2;
+    color: var(--color-primary);
+}
+
+/* Éxito (verde) */
+.badge--success {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+/* Peligro (rojo oscuro) */
+.badge--danger {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+/* Advertencia (amarillo) */
+.badge--warning {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+/* Información (azul) */
+.badge--info {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+/* Neutro (gris) */
+.badge--gray {
+    background-color: #f3f4f6;
+    color: #374151;
+}
+
+/* Oscuro */
+.badge--dark {
+    background-color: var(--color-dark);
+    color: white;
+}
+
+/* ============================================
+   ESTADOS DE PEDIDO
+   ============================================ */
+
+.order-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.375rem 0.75rem;
+    font-size: var(--text-xs);
+    font-weight: 600;
+    border-radius: var(--radius-full);
+    white-space: nowrap;
+}
+
+.order-status--pending {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.order-status--confirmed {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+.order-status--preparing {
+    background-color: #ede9fe;
+    color: #6d28d9;
+}
+
+.order-status--shipped {
+    background-color: #cffafe;
+    color: #155e75;
+}
+
+.order-status--delivered {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.order-status--cancelled {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+/* ============================================
+   INDICADOR DE STOCK
+   ============================================ */
+
+.stock-indicator {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: var(--radius-full);
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.stock-indicator--available {
+    background-color: var(--color-success);
+}
+
+.stock-indicator--low {
+    background-color: var(--color-warning);
+}
+
+.stock-indicator--out {
+    background-color: var(--color-danger);
+}
